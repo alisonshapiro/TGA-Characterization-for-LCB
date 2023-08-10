@@ -34,7 +34,7 @@ Total_area = IG1 + IG2 + IG3;
 
 
 % Calculated Lignin Weight Percent
-Lignin = (IG3) * 100;
+Lignin = IG3;
 HC = IG1 + IG2; %Holocellulose
 
 fprintf('The lignin in the sample is %.1f weight percent. \n',Lignin)
