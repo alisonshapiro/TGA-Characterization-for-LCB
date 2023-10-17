@@ -29,7 +29,7 @@ abs_D = abs(Deriv);
 v_0 = [s1; m1; a1; s2; m2; a1; s3; m3; a3; s4; m4; a4; s0; m0; a0];
 ub = [40; inf; inf; inf; inf; inf; 35; 550; inf; inf; 550; inf; 30; 300; inf];
 lb = [-inf; -inf; 0; -inf; -inf; 0; -inf; -inf; 10; -inf; -inf; 10; -inf; -inf; 5];
-f = @(v)Gaussians_Extra(v,Temp,abs_D);
+f = @(v)Gaussians_Woody(v,Temp,abs_D);
 [p,RMSE] = fmincon(f, v_0, [], [],[],[],lb,ub);
 
 % Area Under Curves
