@@ -2,6 +2,7 @@ function RMSE= Gaussians_Woody(v, Temp, abs_D)
 
 % Initialize arrays
 l = length(Temp);
+G0 = zeros(1,1);
 G1 = zeros(l,1);
 G2 = zeros(l,1);
 G3 = zeros(l,1);
@@ -14,11 +15,17 @@ sq_err = zeros(l,1);
         G2(i) = v(6) / (v(4) * sqrt(2*pi)) * exp(-0.5 * ((Temp(i) - v(5)) / v(4))^2);
         G3(i) = v(9) / (v(7) * sqrt(2*pi)) * exp(-0.5 * ((Temp(i) - v(8)) / v(7))^2);
         G4(i) = v(12) / (v(10) * sqrt(2*pi)) * exp(-0.5 * ((Temp(i) - v(11)) / v(10))^2);
-        fit(i) = G1(i) + G2(i) + G3(i) + G4(i);
+        G0(i) = v(15) / (v(13) * sqrt(2*pi)) * exp(-0.5 * ((Temp(i) - v(14)) / v(13))^2);
+        fit(i) = G1(i) + G2(i) + G3(i) + G4(i) + G0(i);
         sq_err(i) = (fit(i) - abs_D(i))^2;
     end
 RMSE = sqrt(mean(sq_err));
 end
+
+
+
+
+
 
 
 
