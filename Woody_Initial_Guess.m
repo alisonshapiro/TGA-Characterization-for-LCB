@@ -42,7 +42,7 @@ for i = 1:length(Temp)
     G2(i) = a2 / (s2 * sqrt(2*pi)) * exp(-0.5 * ((Temp(i) - m2) / s2)^2);
     G3(i) = a3 / (s3 * sqrt(2*pi)) * exp(-0.5 * ((Temp(i) - m3) / s3)^2);
     G4(i) = a4 / (s4 * sqrt(2*pi)) * exp(-0.5 * ((Temp(i) - m4) / s4)^2);
-    fit(i) = G1(i) + G2(i) + G3(i) + G4(i);
+    fit(i) = G0(i) + G1(i) + G2(i) + G3(i) + G4(i);
     sq_err(i) = (fit(i) - abs_D(i))^2;
 end
 RMSE = sqrt(mean(sq_err));
